@@ -101,6 +101,7 @@ function DesejaFazer(condicao){
     
         default:
             alert("Não pussímos nenhuma dessas opções.")
+            DesejaFazer(condicao)
             break;
     }
 }
