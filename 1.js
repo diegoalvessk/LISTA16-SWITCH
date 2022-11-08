@@ -25,27 +25,43 @@ let senhas = []
 let nomes = []
 let indexGeral = 0
 let condicao = "0"
-NomeSenha(senhas, nomes)
+
 DesejaFazer()
 
 function NomeSenha(senhas, nomes){
     nomes[indexGeral] = prompt("Informe seu nome.")
     senhas[indexGeral] = prompt("Informe sua senha.")
     indexGeral++
+    DesejaFazer()
 }
 
 function DesejaFazer(condicao){
+
     condicao = prompt("O que você deseja no nosso sistema?" + "\n" 
-    + "1 = Cadastrar" + "\n" 
-    + "2 = Carrinho de compras" + "\n" 
-    + "3 = Finalizar procedimentos" + "\n" 
+    + "1 = Cadastrar." + "\n" 
+    + "2 = Fazer Login." + "\n" 
+    + "3 = Excluir um cadastro." + "\n" 
     + "4 = Finalizar programa.")
-    switch (key) {
-        case value:
-            
+
+    switch (condicao) {
+        case "1":
+            NomeSenha(senhas, nomes)
+            break;
+        
+        case "2":
+            NomeSenha(senhas, nomes)
+            break;
+
+        case "3":
+            NomeSenha(senhas, nomes)
+            break;
+
+        case "4":
+            alert("Obrigado por usar nosso sistema!")
             break;
     
         default:
+            alert("Não pussímos nenhuma dessas opções.")
             break;
     }
 }
