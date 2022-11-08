@@ -25,15 +25,48 @@ let senhas = []
 let nomes = []
 let indexGeral = 0
 let condicao = "0"
+let senha = 0
+let nome = 0
+let resultado = false
+let posicao = 0
 
-DesejaFazer()
+DesejaFazer(condicao)
 
 function NomeSenha(senhas, nomes){
     nomes[indexGeral] = prompt("Informe seu nome.")
     senhas[indexGeral] = prompt("Informe sua senha.")
     indexGeral++
-    DesejaFazer()
+    console.log(nomes, senhas)
+    DesejaFazer(condicao)
+
 }
+
+function Login(senha, nome){
+    for (let index = 0; index < nomes.length; index++) {
+        if(nome == nomes[index]){
+            if(senha == senhas[index]){
+                alert("Login realizado com sucesso")
+            }else{
+                alert("Nome ou senha incorretos!")
+            }
+        }        
+    }
+}
+
+function Excluir(nome){
+    console.log(nomes)
+    for (let index = 0; index < nomes.length; index++) {
+        if(nome == nomes[index]){
+            posicao = nomes.indexOf(nome)
+            nomes.splice(posicao, 1);
+            senhas.splice(posicao, 1);
+            alert("Exclusão realizada com sucesso.")
+        }        
+    }
+    console.log(nomes, senhas)
+
+}
+
 
 function DesejaFazer(condicao){
 
@@ -49,11 +82,17 @@ function DesejaFazer(condicao){
             break;
         
         case "2":
-            NomeSenha(senhas, nomes)
+            nome = prompt("Informe o nome de login.")
+            senha = prompt("Informe a senha de login.")
+            console.log(nome, senha)
+            Login(senha, nome, resultado)
+            DesejaFazer(condicao)
             break;
 
         case "3":
-            NomeSenha(senhas, nomes)
+            nome = prompt("Informe o nome de login.")
+            Excluir(nome)
+            DesejaFazer(condicao)
             break;
 
         case "4":
